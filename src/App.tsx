@@ -7,15 +7,16 @@ function App() {
   const { t } = useTranslation();
   const { saveVehiclesData, storeVehicles } = useStoreVehicles();
 
-  console.log("StoreData", storeVehicles.vehicles);
-
   const handleButton = async () => {
     const res = await useFetchVehicleData();
-    console.log(res);
-    // saveVehiclesData(res);
+    if(res) {
+      saveVehiclesData(res)
+    }
   };
 
-  // saveVehiclesData({ teste: "ola" });
+  if(storeVehicles.vehicles.results) {
+    console.log(storeVehicles.vehicles.results)
+  }
 
   return (
     <>
