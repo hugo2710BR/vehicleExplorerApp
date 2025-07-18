@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import "./App.css";
 import { useStoreVehicles } from "./store/vehiclesStore/selectors";
 import { useFetchVehicleData } from "./services/vehicles/useFetchvehiclesData";
+import { MainPageScreen } from "./screens/mainPage/mainPageScreen";
 
 function App() {
   const { t } = useTranslation();
@@ -20,8 +21,9 @@ function App() {
 
   return (
     <>
-      <div>{t("variableNumber", { count: 1 })}</div>
-      <button onClick={handleButton}>Clica</button>
+      {/* <div>{t("variableNumber", { count: 1 })}</div>
+      <button onClick={handleButton}>Clica</button> */}
+      <MainPageScreen />
     </>
   );
 }
