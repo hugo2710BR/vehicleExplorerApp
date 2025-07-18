@@ -18,7 +18,7 @@ export const useZustandVehiclesStore = StoreHelper.createStore<StoreOutput>(
           vehicles: data,
         }),
         false,
-        "saveMTravelData"
+        "saveVehiclesData"
       );
     },
   }),
