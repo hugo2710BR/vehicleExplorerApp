@@ -1,21 +1,22 @@
 import { StoreHelper } from "../storeHelper";
+import type { DataFromAPI } from "./types";
 
-export const initialState = {
-  Model: "OPEL",
+export const initialState: DataFromAPI = {
+  total_count: 1,
+  results: [{ make: "OPEL", model: "ASTRA" }],
 };
 
-interface StoreOutput {
-  saveVehiclesData: (data: any) => void;
+interface StoreOutput extends DataFromAPI {
+  saveVehiclesData: (data: DataFromAPI) => void;
 }
 
 export const useZustandVehiclesStore = StoreHelper.createStore<StoreOutput>(
   (set) => ({
-    vehicles: initialState,
-    saveVehiclesData: function (data: any) {
+    ...initialState,
+    saveVehiclesData: (data) => {
       set(
-        (state: any) => ({
-          ...state,
-          vehicles: data,
+        () => ({
+          ...data,
         }),
         false,
         "saveVehiclesData"
