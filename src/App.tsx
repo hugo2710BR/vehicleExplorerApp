@@ -21,7 +21,9 @@ function App() {
     fetchData();
   }, []);
 
-  // saveVehiclesData({ teste: "ola" });
+  if (storeVehicles.vehicles.results) {
+    console.log(storeVehicles.vehicles.results);
+  }
 
   return (
     <>
