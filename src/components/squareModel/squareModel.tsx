@@ -1,7 +1,7 @@
-import type { ResultsType } from "../../store/vehiclesStore/types";
+import type { DataFromAPI, ResultsType } from "../../store/vehiclesStore/types";
 
 export interface SquareModelProps {
-  data: ResultsType[] | number[];
+  data: DataFromAPI;
 }
 
 export const SquareModelComponent = (props: SquareModelProps) => {
@@ -12,10 +12,10 @@ export const SquareModelComponent = (props: SquareModelProps) => {
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(275px, 1fr))",
         gap: "20px",
-        padding: "42px",
+        padding: "20px 42px 42px 42px",
       }}
     >
-      {data.map((index) => (
+      {data.results.map((car) => (
         <div
           style={{
             width: "100%",
@@ -23,6 +23,7 @@ export const SquareModelComponent = (props: SquareModelProps) => {
             aspectRatio: "1 / 1",
             border: "1px solid #cbc8c8",
             borderRadius: "16px",
+            position: "relative",
           }}
         >
           <div
@@ -36,9 +37,44 @@ export const SquareModelComponent = (props: SquareModelProps) => {
               backgroundSize: "cover",
               backgroundPosition: "center",
               borderBottom: "1px solid #cbc8c8",
+              display: "block",
             }}
           />
-          <div style={{ fontSize: "13px", color: "black" }}></div>
+          <div
+            style={{
+              fontSize: "20px",
+              color: "black",
+              marginTop: "50px",
+              marginLeft: "20px",
+            }}
+          >
+            {car.make}
+          </div>
+          <div
+            style={{
+              fontSize: "15px",
+              color: "#717182",
+              marginTop: "5px",
+              marginLeft: "20px",
+            }}
+          >
+            {car.model}
+          </div>
+          <div
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              position: "absolute",
+              top: "10px",
+              left: "10px",
+              width: "15%",
+              textAlign: "center",
+              borderRadius: "10px",
+              padding: "3px",
+            }}
+          >
+            {car.year}
+          </div>
         </div>
       ))}
     </div>

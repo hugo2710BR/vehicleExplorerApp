@@ -2,5 +2,7 @@
      "welcomeMessage": "Welcome to React and react-i18next",
      "variableNumber_one": "You have {{count}} Notification",
       "variableNumber_other": "You have {{count}} Notifications",
-      "tagTranslation": "Welcome, <bold>Hugo</bold>"
+      "tagTranslation": "Welcome, <bold>Hugo</bold>",
+      "numberOfVehiclesText_one": "{{vehiclesNumber}} veículo disponivel",
+      "numberOfVehiclesText_other": "{{vehiclesNumber}} veículos disponíveis"
 }

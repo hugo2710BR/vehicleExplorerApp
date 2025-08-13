@@ -5,6 +5,7 @@ export const Header = () => {
         height: "95px",
         width: "100%",
         borderBottom: "1px solid #cbc8c8",
+        marginBottom: "20px",
       }}
     >
       <div
@@ -14,7 +15,7 @@ export const Header = () => {
           alignContent: "center",
         }}
       >
-        <div style={{ fontSize: "21px" }}>Catálogo de veículos</div>
+        <div style={{ fontSize: "21px" }}>Vehicle Car Explorer</div>
         <div
           style={{
             fontSize: "14px",
