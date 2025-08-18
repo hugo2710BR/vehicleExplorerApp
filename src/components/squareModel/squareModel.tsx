@@ -1,9 +1,9 @@
-import type { DataFromAPI, ResultsType } from "../../store/vehiclesStore/types";
+import type { DataFromAPI } from "../../store/vehiclesStore/types";
 
 export interface SquareModelProps {
   data: DataFromAPI;
 }
-
+//
 export const SquareModelComponent = (props: SquareModelProps) => {
   const { data } = props;
   return (
