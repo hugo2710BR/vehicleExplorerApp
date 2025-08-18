@@ -6,6 +6,7 @@ import { Header } from "./components/header/header";
 import { SquareModelComponent } from "./components/squareModel/squareModel";
 import { useEffect } from "react";
 import { Typography } from "./components/typography/typography";
+import { CarFilter } from "./components/carFilter/carFilter";
 
 function App() {
   const { t } = useTranslation();
@@ -32,13 +33,20 @@ function App() {
   return (
     <>
       <Header />
-      <Typography
-        text={t("numberOfVehiclesText_other", {
-          vehiclesNumber: numberOfVehicles,
-        })}
-        mainContainerProps={{ paddingLeft: "42px" }}
-      />
-      <SquareModelComponent data={storeVehicles} />
+      <div style={{ width: "100%", display: "flex", gap: "15px" }}>
+        <div style={{ width: "auto", marginLeft: "15px" }}>
+          <CarFilter cars={storeVehicles.results} />
+        </div>
+        <div style={{ width: "100%" }}>
+          <Typography
+            text={t("numberOfVehiclesText_other", {
+              vehiclesNumber: numberOfVehicles,
+            })}
+            mainContainerProps={{ paddingLeft: "42px" }}
+          />
+          <SquareModelComponent data={storeVehicles} />
+        </div>
+      </div>
     </>
   );
 }
