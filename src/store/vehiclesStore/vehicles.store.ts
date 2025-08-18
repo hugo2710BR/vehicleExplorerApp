@@ -3,7 +3,7 @@ import type { DataFromAPI } from "./types";
 
 export const initialState: DataFromAPI = {
   total_count: 1,
-  results: [{ make: "OPEL", model: "ASTRA" }],
+  results: [{ make: "OPEL", model: "ASTRA", year: "2001" }],
 };
 
 interface StoreOutput extends DataFromAPI {
@@ -13,10 +13,15 @@ interface StoreOutput extends DataFromAPI {
 export const useZustandVehiclesStore = StoreHelper.createStore<StoreOutput>(
   (set) => ({
     ...initialState,
-    saveVehiclesData: (data) => {
+    saveVehiclesData: (data: DataFromAPI) => {
       set(
         () => ({
-          ...data,
+          total_count: data.total_count,
+          results: data.results.map((car) => ({
+            make: car.make,
+            model: car.model,
+            year: car.year,
+          })),
         }),
         false,
         "saveVehiclesData"
