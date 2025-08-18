@@ -1,4 +1,4 @@
-import type { DataFromAPI, ResultsType } from "../../store/vehiclesStore/types";
+import type { DataFromAPI } from "../../store/vehiclesStore/types";
 
 export interface SquareModelProps {
   data: DataFromAPI;
